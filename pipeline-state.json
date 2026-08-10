@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "revision": 44,
+  "revision": 45,
   "project": "vitals-log",
   "workspace": "workspace/vitals-log",
   "profile": "LITE",
@@ -257,7 +257,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-10T08:54:12.855Z",
+  "updated_at": "2026-08-10T08:54:13.033Z",
   "default_mode": "AUTOPILOT",
   "providers": {
     "selected": [
