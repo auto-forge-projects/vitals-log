@@ -1,12 +1,22 @@
 {
   "schema_version": 2,
-  "revision": 41,
+  "revision": 44,
   "project": "vitals-log",
   "workspace": "workspace/vitals-log",
   "profile": "LITE",
   "current_phase": 9,
   "status": "running",
-  "active_agents": [],
+  "active_agents": [
+    {
+      "agent": "developer",
+      "model": "sonnet",
+      "phase": 9,
+      "task": "Development TDD",
+      "started_at": "2026-08-10T08:50:00.000Z",
+      "last_update": "2026-08-10T08:50:00.000Z",
+      "via": "inline"
+    }
+  ],
   "phases": {
     "0": {
       "mode": "AUTOPILOT",
@@ -113,6 +123,12 @@
       "decisions": [
         "DL-08-001"
       ]
+    },
+    "9": {
+      "mode": "AUTOPILOT",
+      "status": "running",
+      "started_at": "2026-08-10T08:50:00.000Z",
+      "note": "Development baslatildi (inline developer rolu, TDD)"
     },
     "1-2": {
       "mode": "AUTOPILOT",
@@ -241,7 +257,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-10T08:46:56.394Z",
+  "updated_at": "2026-08-10T08:54:12.855Z",
   "default_mode": "AUTOPILOT",
   "providers": {
     "selected": [

@@ -1,0 +1,15 @@
+{
+  "name": "vitals-log",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Gunluk vital bulgu takip araci (AutoForge LITE).",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test tests/",
+    "gen-token": "node -e \"console.log(require('node:crypto').randomBytes(24).toString('base64url'))\""
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}
