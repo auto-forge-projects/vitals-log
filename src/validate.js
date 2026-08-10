@@ -7,7 +7,7 @@ const ALLOWED_KEYS = new Set([
 ]);
 const DANGEROUS_KEYS = new Set(['__proto__', 'constructor', 'prototype']);
 const TIME_PERIODS = new Set(['Sabah', 'Öğle', 'İkindi', 'Akşam', 'Yatsı']);
-const TS_RE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}([+-]\d{2}:\d{2}|Z)$/;
+const TS_RE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{1,3})?([+-]\d{2}:\d{2}|Z)$/;
 
 const RANGES = {
   right_systolic: [40, 300], right_diastolic: [20, 200],
