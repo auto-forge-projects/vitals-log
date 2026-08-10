@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
-  "revision": 24,
+  "revision": 27,
   "project": "vitals-log",
   "workspace": "workspace/vitals-log",
   "profile": "LITE",
-  "current_phase": 5,
+  "current_phase": 6,
   "status": "running",
   "active_agents": [],
   "phases": {
@@ -52,6 +52,23 @@
         "DL-04-002",
         "DL-04-003",
         "DL-04-004"
+      ]
+    },
+    "5": {
+      "mode": "AUTOPILOT",
+      "status": "done",
+      "started_at": "2026-08-10T08:32:30.000Z",
+      "note": "Mimari tasarim tamamlandi (architect subagent) — node:http+Express-uyumlu middleware, db.js/derive.js/csv.js/routes, /app/data/vitals.db volume, dilim esikleri sabit",
+      "gate_passed": true,
+      "completed_at": "2026-08-10T08:38:00.000Z",
+      "artifacts": [
+        "docs/05-architecture.md"
+      ],
+      "decisions": [
+        "DL-05-001",
+        "DL-05-002",
+        "DL-05-003",
+        "DL-05-004"
       ]
     },
     "1-2": {
@@ -125,10 +142,18 @@
         "model_recommended": "opus",
         "gate_passed": true,
         "at": "2026-08-10T08:32:00.000Z"
+      },
+      {
+        "phase": "5",
+        "duration_s": 330,
+        "model": null,
+        "model_recommended": "opus",
+        "gate_passed": true,
+        "at": "2026-08-10T08:38:00.000Z"
       }
     ]
   },
-  "updated_at": "2026-08-10T08:32:07.096Z",
+  "updated_at": "2026-08-10T08:37:51.969Z",
   "default_mode": "AUTOPILOT",
   "providers": {
     "selected": [
