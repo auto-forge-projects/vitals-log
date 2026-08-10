@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
-  "revision": 106,
+  "revision": 110,
   "project": "vitals-log",
   "workspace": "workspace/vitals-log",
   "profile": "LITE",
-  "current_phase": 14,
+  "current_phase": 15,
   "status": "running",
   "active_agents": [],
   "phases": {
@@ -211,6 +211,20 @@
         "DL-13-001"
       ]
     },
+    "14": {
+      "mode": "AUTOPILOT",
+      "status": "done",
+      "started_at": "2026-08-10T09:14:00.000Z",
+      "note": "Monitoring tamamlandi (inline devops-engineer rolu) — health check + container log, alerting altyapisi LITE kapsami disinda",
+      "gate_passed": true,
+      "completed_at": "2026-08-10T09:14:40.000Z",
+      "artifacts": [
+        "docs/14-monitoring.md"
+      ],
+      "decisions": [
+        "DL-14-001"
+      ]
+    },
     "1-2": {
       "mode": "AUTOPILOT",
       "status": "done",
@@ -372,10 +386,18 @@
         "model_recommended": "haiku",
         "gate_passed": true,
         "at": "2026-08-10T09:13:40.000Z"
+      },
+      {
+        "phase": "14",
+        "duration_s": 40,
+        "model": null,
+        "model_recommended": "sonnet",
+        "gate_passed": true,
+        "at": "2026-08-10T09:14:40.000Z"
       }
     ]
   },
-  "updated_at": "2026-08-10T09:13:35.067Z",
+  "updated_at": "2026-08-10T09:14:24.827Z",
   "default_mode": "AUTOPILOT",
   "providers": {
     "selected": [
