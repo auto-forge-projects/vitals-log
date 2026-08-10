@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
-  "revision": 88,
+  "revision": 95,
   "project": "vitals-log",
   "workspace": "workspace/vitals-log",
   "profile": "LITE",
-  "current_phase": 10,
+  "current_phase": 12,
   "status": "running",
   "active_agents": [],
   "phases": {
@@ -165,6 +165,21 @@
         "DL-09-001"
       ]
     },
+    "11": {
+      "mode": "AUTOPILOT",
+      "status": "done",
+      "started_at": "2026-08-10T09:09:15.000Z",
+      "note": "Test tamamlandi (inline test-engineer rolu) — Faz 9 testleri FR/NFR/SEC izlenebilirligiyle kapsama alindi, 68/68 yesil, coverage %98.05, kritik senaryolar %100",
+      "gate_passed": true,
+      "completed_at": "2026-08-10T09:11:00.000Z",
+      "artifacts": [
+        "docs/11-test/test-plan.md",
+        "docs/11-test/results.md"
+      ],
+      "decisions": [
+        "DL-11-001"
+      ]
+    },
     "1-2": {
       "mode": "AUTOPILOT",
       "status": "done",
@@ -228,6 +243,11 @@
       "event": "phase_started",
       "phase": 8,
       "detail": "paralel dispatch (6,7,8)"
+    },
+    {
+      "event": "phase_skipped",
+      "phase": 10,
+      "detail": "Code Review — LITE profilinde ATLANIR (AF-112). Kod bagimsiz denetimden gecmez, kullanici hizi bu riske tercih etti."
     }
   ],
   "budget": {
@@ -297,10 +317,18 @@
         "model_recommended": "sonnet",
         "gate_passed": true,
         "at": "2026-08-10T09:08:30.000Z"
+      },
+      {
+        "phase": "11",
+        "duration_s": 105,
+        "model": null,
+        "model_recommended": "sonnet",
+        "gate_passed": true,
+        "at": "2026-08-10T09:11:00.000Z"
       }
     ]
   },
-  "updated_at": "2026-08-10T09:08:40.708Z",
+  "updated_at": "2026-08-10T09:10:35.431Z",
   "default_mode": "AUTOPILOT",
   "providers": {
     "selected": [
@@ -332,6 +360,11 @@
       "phase": "6-7-8",
       "at": "2026-08-10T08:46:51.603Z",
       "note": "UI: tek sayfa form+liste. Guvenlik: capability-URL (MOUNT_PREFIX, 128bit CSPRNG, fail-closed, timingSafeEqual, 404-on-miss), oksijen araligi 50-100 (0-49 veri hatasi sayilir), CSP script-src self, SEC-1..12. Plan: 8 TDD task (derive->validate/db->csv->routes->server->public->entegrasyon)."
+    },
+    {
+      "phase": 9,
+      "at": "2026-08-10T09:08:43.461Z",
+      "note": "Kod tamam: derive.js/validate.js/db.js(node:sqlite)/csv.js/routes/readings.js/server.js(node:http)/public/ (form+liste+CRUD+CSV). 68 test yesil, coverage %98.05. Capability-URL erisim modeli (MOUNT_PREFIX) calisir durumda, SEC-1..10+12 uygulandi. Faz 11 bu testleri Faz 11 kapsamina alacak."
     }
   ],
   "product": {
