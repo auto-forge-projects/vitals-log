@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
-  "revision": 15,
+  "revision": 18,
   "project": "vitals-log",
   "workspace": "workspace/vitals-log",
   "profile": "LITE",
-  "current_phase": 0,
+  "current_phase": "1-2",
   "status": "running",
   "active_agents": [],
   "phases": {
@@ -22,6 +22,20 @@
       ],
       "gate_passed": true,
       "completed_at": "2026-08-10T08:26:00.000Z"
+    },
+    "1-2": {
+      "mode": "AUTOPILOT",
+      "status": "done",
+      "started_at": "2026-08-10T08:26:30.000Z",
+      "note": "Deger & Fizibilite (LITE birlesik) — GO karari",
+      "gate_passed": true,
+      "completed_at": "2026-08-10T08:27:00.000Z",
+      "artifacts": [
+        "docs/01-02-value-feasibility.md"
+      ],
+      "decisions": [
+        "DL-01-001"
+      ]
     }
   },
   "feedback_loops": [],
@@ -55,9 +69,19 @@
   ],
   "budget": {
     "model_calls": {},
-    "notes": ""
+    "notes": "",
+    "telemetry": [
+      {
+        "phase": "1-2",
+        "duration_s": 30,
+        "model": null,
+        "model_recommended": "sonnet",
+        "gate_passed": true,
+        "at": "2026-08-10T08:27:00.000Z"
+      }
+    ]
   },
-  "updated_at": "2026-08-10T08:25:04.372Z",
+  "updated_at": "2026-08-10T08:26:09.376Z",
   "default_mode": "AUTOPILOT",
   "providers": {
     "selected": [
