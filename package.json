@@ -6,7 +6,7 @@
   "description": "Gunluk vital bulgu takip araci (AutoForge LITE).",
   "scripts": {
     "start": "node src/server.js",
-    "test": "node --test tests/",
+    "test": "node --test",
     "gen-token": "node -e \"console.log(require('node:crypto').randomBytes(24).toString('base64url'))\""
   },
   "engines": {
