@@ -1,22 +1,27 @@
 {
   "schema_version": 2,
-  "revision": 13,
+  "revision": 15,
   "project": "vitals-log",
   "workspace": "workspace/vitals-log",
   "profile": "LITE",
   "current_phase": 0,
-  "status": "pending",
+  "status": "running",
   "active_agents": [],
   "phases": {
     "0": {
       "mode": "AUTOPILOT",
-      "status": "awaiting_approval",
-      "note": "0b rafine brief + 7 netleştirme sorusu (4 kritik) onay bekliyor",
+      "status": "done",
+      "note": "0b brief onaylandı + Faz 0 (Fikir/Intake) üretildi (orchestrator inline, business-analyst rolü)",
       "artifacts": [
         "docs/00-refined-brief.md",
-        "docs/00-refine-questions.json"
+        "docs/00-refine-questions.json",
+        "docs/00-idea.md"
       ],
-      "decisions": []
+      "decisions": [
+        "DL-00-001"
+      ],
+      "gate_passed": true,
+      "completed_at": "2026-08-10T08:26:00.000Z"
     }
   },
   "feedback_loops": [],
@@ -52,7 +57,7 @@
     "model_calls": {},
     "notes": ""
   },
-  "updated_at": "2026-08-10T08:24:25.518Z",
+  "updated_at": "2026-08-10T08:25:04.372Z",
   "default_mode": "AUTOPILOT",
   "providers": {
     "selected": [
@@ -73,5 +78,12 @@
       "fallback_reason": null
     },
     "at": "2026-08-10T08:21:06.566Z"
-  }
+  },
+  "checkpoints": [
+    {
+      "phase": 0,
+      "at": "2026-08-10T08:25:04.372Z",
+      "note": "vitals-log: mobil oncelikli, girissiz tek kullanici, sunucu-DB vital bulgu takip araci. Sag/sol kol tansiyon+ortalama(aritmetik+MAP), ates/nabiz/oksijen, zaman dilimi onerisi, CRUD+CSV export."
+    }
+  ]
 }
