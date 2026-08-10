@@ -1,11 +1,11 @@
 {
   "schema_version": 2,
-  "revision": 115,
+  "revision": 120,
   "project": "vitals-log",
   "workspace": "workspace/vitals-log",
   "profile": "LITE",
   "current_phase": 16,
-  "status": "running",
+  "status": "completed",
   "active_agents": [],
   "phases": {
     "0": {
@@ -239,6 +239,20 @@
         "DL-15-001"
       ]
     },
+    "16": {
+      "mode": "AUTOPILOT",
+      "status": "done",
+      "started_at": "2026-08-10T09:16:00.000Z",
+      "note": "Retrospektif tamamlandi — AF-129/AF-130 fabrika loguna kaydedildi, Oneri 1 (agent tanimlarina git-yasagi notu) secildi",
+      "gate_passed": true,
+      "completed_at": "2026-08-10T09:16:40.000Z",
+      "artifacts": [
+        "docs/16-retro.md"
+      ],
+      "decisions": [
+        "DL-16-001"
+      ]
+    },
     "1-2": {
       "mode": "AUTOPILOT",
       "status": "done",
@@ -307,6 +321,10 @@
       "event": "phase_skipped",
       "phase": 10,
       "detail": "Code Review — LITE profilinde ATLANIR (AF-112). Kod bagimsiz denetimden gecmez, kullanici hizi bu riske tercih etti."
+    },
+    {
+      "event": "pipeline_completed",
+      "detail": "17 faz (0b dahil) AUTOPILOT ile tamamlandi. Deploy TETIKLENMEDI (TD-1: MOUNT_PREFIX secret eksik, production fail-closed baslamaz) - kullanici bu eksigi cozup pipeline-deploy ile manuel tetiklemeli."
     }
   ],
   "budget": {
@@ -416,10 +434,18 @@
         "model_recommended": "haiku",
         "gate_passed": true,
         "at": "2026-08-10T09:15:40.000Z"
+      },
+      {
+        "phase": "16",
+        "duration_s": 40,
+        "model": null,
+        "model_recommended": "sonnet",
+        "gate_passed": true,
+        "at": "2026-08-10T09:16:40.000Z"
       }
     ]
   },
-  "updated_at": "2026-08-10T09:15:15.844Z",
+  "updated_at": "2026-08-10T09:17:19.401Z",
   "default_mode": "AUTOPILOT",
   "providers": {
     "selected": [
