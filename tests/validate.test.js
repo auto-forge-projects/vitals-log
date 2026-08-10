@@ -73,6 +73,11 @@ test('ts verilirse aynen korunur', () => {
   assert.equal(v.ts, '2026-08-06T07:15:00+03:00');
 });
 
+test('ts verilmezse now() atanir ve kendi regex ile tutarlidir (milisaniyeli Z)', () => {
+  const v = ok({ pulse: 70, time_period: 'Sabah' });
+  assert.match(v.ts, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/);
+});
+
 test('gecersiz ts formati reddedilir', () => {
   const e = err({ pulse: 70, time_period: 'Sabah', ts: '06/08/2026' });
   assert.equal(e.field, 'ts');
