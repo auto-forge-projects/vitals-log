@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "revision": 47,
+  "revision": 50,
   "project": "vitals-log",
   "workspace": "workspace/vitals-log",
   "profile": "LITE",
@@ -13,7 +13,7 @@
       "phase": 9,
       "task": "Development TDD",
       "started_at": "2026-08-10T08:50:00.000Z",
-      "last_update": "2026-08-10T08:50:00.000Z",
+      "last_update": "2026-08-10T08:55:15.114Z",
       "via": "inline"
     }
   ],
@@ -128,7 +128,41 @@
       "mode": "AUTOPILOT",
       "status": "running",
       "started_at": "2026-08-10T08:50:00.000Z",
-      "note": "Development baslatildi (inline developer rolu, TDD)"
+      "note": "Development baslatildi (inline developer rolu, TDD)",
+      "tasks": [
+        {
+          "title": "TASK-001 derive.js (mean/map/periodFor/enrich)",
+          "status": "done"
+        },
+        {
+          "title": "TASK-002 validate.js",
+          "status": "in_progress"
+        },
+        {
+          "title": "TASK-003 db.js ReadingStore",
+          "status": "pending"
+        },
+        {
+          "title": "TASK-004 csv.js",
+          "status": "pending"
+        },
+        {
+          "title": "TASK-005 routes/readings.js",
+          "status": "pending"
+        },
+        {
+          "title": "TASK-006 server.js middleware+static+health",
+          "status": "pending"
+        },
+        {
+          "title": "TASK-007 public/ istemci",
+          "status": "pending"
+        },
+        {
+          "title": "TASK-008 entegrasyon+coverage+kapi",
+          "status": "pending"
+        }
+      ]
     },
     "1-2": {
       "mode": "AUTOPILOT",
@@ -257,7 +291,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-10T08:54:15.454Z",
+  "updated_at": "2026-08-10T08:56:49.122Z",
   "default_mode": "AUTOPILOT",
   "providers": {
     "selected": [
