@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "revision": 139,
+  "revision": 141,
   "project": "vitals-log",
   "workspace": "workspace/vitals-log",
   "profile": "LITE",
@@ -219,7 +219,7 @@
       "started_at": "2026-08-10T09:15:00.000Z",
       "note": "Bakim tamamlandi — TD-1..6 (1 P1, 2 P2, 3 P3)",
       "gate_passed": true,
-      "completed_at": "2026-08-10T09:15:40.000Z",
+      "completed_at": "2026-08-10T10:37:00.000Z",
       "artifacts": [
         "docs/15-maintenance.md"
       ],
@@ -430,7 +430,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-10T10:10:53.288Z",
+  "updated_at": "2026-08-10T10:11:52.211Z",
   "default_mode": "AUTOPILOT",
   "providers": {
     "selected": [
