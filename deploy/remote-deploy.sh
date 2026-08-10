@@ -12,6 +12,11 @@ set -euo pipefail
 HEALTHCHECK="${HEALTHCHECK:-/health}"     # deploy sonrası doğrulanacak yol (boş → yalnız container-çalışıyor kontrolü)
 HEALTH_RETRIES="${HEALTH_RETRIES:-15}"    # ~30sn (2sn aralık) boot + ilk yanıt için
 
+# REQ-001/TD-1: MOUNT_PREFIX (SEC-2 fail-closed) burada FAIL-LOUD kontrol edilir — yoksa
+# container'i hic baslatmadan dur, "deploy basarili gorunup erisilemez" belirtisi tekrarlanmasin
+# (assertProductionPrefix ayni seyi container-ICINDE yapar ama crash-loop tesbiti daha gec/bulanik).
+: "${MOUNT_PREFIX:?MOUNT_PREFIX secret bos/tanimsiz — GitHub Secrets'a (deploy.json.secret_names.mount_prefix, varsayilan MOUNT_PREFIX) 'npm run gen-token' ciktisini ekle}"
+
 # Private GHCR paketleri için otomatik login (GHCR_TOKEN/GHCR_USER verilirse).
 # Böylece paketi elle public yapmaya gerek kalmaz; verilmezse public paket varsayılır.
 if [ -n "${GHCR_TOKEN:-}" ] && [ -n "${GHCR_USER:-}" ]; then
@@ -41,7 +46,8 @@ docker pull "$IMAGE"
 
 start_container() { # $1=imaj — eskiyi durdurup yeni container'ı başlatır
   docker rm -f "$PROJECT" >/dev/null 2>&1 || true
-  docker run -d --name "$PROJECT" --restart unless-stopped -p "127.0.0.1:${HOST_PORT}:${PORT}" "$1" >/dev/null
+  docker run -d --name "$PROJECT" --restart unless-stopped -p "127.0.0.1:${HOST_PORT}:${PORT}" \
+    -e "MOUNT_PREFIX=${MOUNT_PREFIX}" "$1" >/dev/null
 }
 
 health_ok() { # container çalışıyor + crash-loop DEĞİL (+ HTTP 2xx/3xx, curl+endpoint varsa)

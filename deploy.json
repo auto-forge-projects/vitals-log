@@ -13,7 +13,8 @@
   "secret_names": {
     "host": "DEPLOY_HOST",
     "user": "DEPLOY_USER",
-    "key": "DEPLOY_SSH_KEY"
+    "key": "DEPLOY_SSH_KEY",
+    "mount_prefix": "MOUNT_PREFIX"
   },
   "tls": "wildcard",
   "cert_base": "/etc/letsencrypt/live/apps.sametemek.com",

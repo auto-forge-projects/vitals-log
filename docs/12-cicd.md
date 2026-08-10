@@ -23,7 +23,15 @@
 | `MOUNT_PREFIX` | **Evet, production'da** (SEC-2 fail-closed) | `npm run gen-token` ile üretilir; **GitHub Secret veya sunucu env'i olarak eklenmeli** — repoya ASLA yazılmaz |
 | `NODE_ENV` | Evet (`production`) | Fail-closed kontrolünü aktive eder |
 
-**Not (Faz 13/15'e taşınır):** `MOUNT_PREFIX` deploy secret olarak `deploy.json.secret_names`'e henüz eklenmedi (yalnız SSH secret'ları var) — bu bir teknik borç, Faz 15'e düşülecek.
+## Yeniden doğrulama (AF-091 — REQ-001 delta, cycle 2)
+
+**TD-1 (deploy zincirinde `MOUNT_PREFIX` iletimi eksik) çözüldü.** Kök nedenin ikinci bacağı (DL-09-002'nin kapsam notu): `deploy.json.secret_names`'te `MOUNT_PREFIX` YOKTU, dolayısıyla `deploy-image.yml`/`remote-deploy.sh` bu secret'ı hiç okumuyor/container'a iletmiyordu — GH Secret elle oluşturulsa bile `docker run` ona hiç `-e` geçmiyordu. Üç değişiklik:
+
+1. `deploy.json.secret_names.mount_prefix = "MOUNT_PREFIX"` eklendi (GH Secret adı; değer repoya YAZILMAZ).
+2. `.github/workflows/deploy-image.yml`: `cfg` adımı `secret_mount_prefix` çıktısını üretir; `ssh-deploy` job'ı `MOUNT_PREFIX` env'ini `secrets[...]`'ten okuyup (diğer sırlar gibi %q ile kaçışlanmış stdin üzerinden, argv'ye gömülmeden) `remote-deploy.sh`'e aktarır.
+3. `deploy/remote-deploy.sh`: `: "${MOUNT_PREFIX:?...}"` ile FAIL-LOUD kontrol (secret boşsa deploy scripti container'ı hiç başlatmadan açıklayıcı hata ile durur — "başarılı görünüp erişilemez" belirtisi CI seviyesinde önlenir) + `start_container()`'da `docker run -e MOUNT_PREFIX=...` eklendi.
+
+**Kalan manuel adım (kasıtlı):** GH Secret'ı bir kez oluşturmak (`npm run gen-token` çıktısını `MOUNT_PREFIX` adıyla repo secrets'a eklemek) hâlâ insan elidir — bu SEC-2'nin "fail-closed varsayılan" tasarımının parçasıdır, otomatik üretim/rotasyon kapsam dışıdır. Değişen şey: secret bir kez oluşturulduktan SONRA container'a ulaşmasının garanti edilmesi (öncesinde bu garanti yoktu).
 
 ## state.product
 

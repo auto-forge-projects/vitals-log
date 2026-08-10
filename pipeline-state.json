@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "revision": 130,
+  "revision": 133,
   "project": "vitals-log",
   "workspace": "workspace/vitals-log",
   "profile": "LITE",
@@ -171,10 +171,10 @@
     "12": {
       "mode": "AUTOPILOT",
       "status": "done",
-      "started_at": "2026-08-10T09:11:30.000Z",
+      "started_at": "2026-08-10T10:06:19.711Z",
       "note": "CI/CD tamamlandi (inline devops-engineer rolu) — Dockerfile eklendi, docker build basarili, scaffold CI/deploy workflow dokunulmadan kullanildi",
       "gate_passed": true,
-      "completed_at": "2026-08-10T09:12:30.000Z",
+      "completed_at": "2026-08-10T10:30:00.000Z",
       "artifacts": [
         "Dockerfile",
         "docs/12-cicd.md",
@@ -419,10 +419,18 @@
         "model_recommended": "sonnet",
         "gate_passed": true,
         "at": "2026-08-10T10:22:00.000Z"
+      },
+      {
+        "phase": "12",
+        "duration_s": 1420,
+        "model": null,
+        "model_recommended": "sonnet",
+        "gate_passed": true,
+        "at": "2026-08-10T10:30:00.000Z"
       }
     ]
   },
-  "updated_at": "2026-08-10T10:06:09.835Z",
+  "updated_at": "2026-08-10T10:08:43.946Z",
   "default_mode": "AUTOPILOT",
   "providers": {
     "selected": [

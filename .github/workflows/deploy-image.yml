@@ -81,6 +81,7 @@ jobs:
               "secret_host=" + (sn.host || "DEPLOY_HOST"),
               "secret_user=" + (sn.user || "DEPLOY_USER"),
               "secret_key=" + (sn.key || "DEPLOY_SSH_KEY"),
+              "secret_mount_prefix=" + (sn.mount_prefix || "MOUNT_PREFIX"),
             ].join("\n");
             require("fs").appendFileSync(process.env.GITHUB_OUTPUT, out + "\n");
           '
@@ -90,6 +91,9 @@ jobs:
           DEPLOY_SSH_KEY: ${{ secrets[steps.cfg.outputs.secret_key] }}
           DEPLOY_HOST: ${{ secrets[steps.cfg.outputs.secret_host] }}
           DEPLOY_USER: ${{ secrets[steps.cfg.outputs.secret_user] }}
+          # REQ-001/TD-1: SEC-2 fail-closed icin gerekli uygulama sirri — container'a iletilmezse
+          # assertProductionPrefix production'da sunucuyu hic baslatmaz (bkz. DL-12-002).
+          MOUNT_PREFIX: ${{ secrets[steps.cfg.outputs.secret_mount_prefix] }}
           GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GHCR_USER: ${{ github.actor }}
           CFG_HOST: ${{ steps.cfg.outputs.host }}
@@ -108,7 +112,7 @@ jobs:
           IMG="ghcr.io/$OWNER/vitals-log:$TAG"
           # 1.8: sırlar (GHCR_TOKEN, SSH) uzak komut ARGÜMANINA gömülmez (ps/proc/history'de görünmez).
           #      Değişkenler %q ile kaçışlanıp stdin üzerinden (script'in başına) aktarılır → argv temiz.
-          { printf 'export GHCR_TOKEN=%q GHCR_USER=%q PROJECT=%q IMAGE=%q HOST=%q HOST_PORT=%q PORT=%q CERT_BASE=%q HEALTHCHECK=%q\n' \
-              "$GHCR_TOKEN" "$GHCR_USER" "vitals-log" "$IMG" "$CFG_HOST" "$CFG_HOST_PORT" "$CFG_PORT" "$CFG_CERT_BASE" "$CFG_HEALTHCHECK"; \
+          { printf 'export GHCR_TOKEN=%q GHCR_USER=%q PROJECT=%q IMAGE=%q HOST=%q HOST_PORT=%q PORT=%q CERT_BASE=%q HEALTHCHECK=%q MOUNT_PREFIX=%q\n' \
+              "$GHCR_TOKEN" "$GHCR_USER" "vitals-log" "$IMG" "$CFG_HOST" "$CFG_HOST_PORT" "$CFG_PORT" "$CFG_CERT_BASE" "$CFG_HEALTHCHECK" "$MOUNT_PREFIX"; \
             cat deploy/remote-deploy.sh; } \
             | ssh -o StrictHostKeyChecking=accept-new -i ~/.ssh/id "$DEPLOY_USER@$DEPLOY_HOST" bash -s
