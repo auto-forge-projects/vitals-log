@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "revision": 134,
+  "revision": 137,
   "project": "vitals-log",
   "workspace": "workspace/vitals-log",
   "profile": "LITE",
@@ -191,7 +191,7 @@
       "started_at": "2026-08-10T09:13:00.000Z",
       "note": "Release tamamlandi — v0.1.0, rollback plani tanimli, JOIN kapisi (Faz10 LITE atlanir) dogrulandi",
       "gate_passed": true,
-      "completed_at": "2026-08-10T09:13:40.000Z",
+      "completed_at": "2026-08-10T10:33:00.000Z",
       "artifacts": [
         "docs/13-release-notes.md"
       ],
@@ -430,7 +430,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-10T10:08:46.575Z",
+  "updated_at": "2026-08-10T10:10:06.243Z",
   "default_mode": "AUTOPILOT",
   "providers": {
     "selected": [
@@ -482,7 +482,7 @@
   "product": {
     "name": "vitals-log",
     "type": "web",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "auto_run": false,
     "commands": {
       "build": "docker build -t vitals-log .",
