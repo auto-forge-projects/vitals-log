@@ -4,9 +4,13 @@
 
 ## Özet
 
-- **68/68 test yeşil**, 0 başarısız, 0 atlanmış (`node --test` çıktısı: `pass 68`, `fail 0`).
-- **Coverage: %98.05 satır, %92.81 dal, %98.67 fonksiyon** (hedef ≥%70 — aşıldı).
+- **73/73 test yeşil**, 0 başarısız, 0 atlanmış (`node --test` çıktısı: `pass 73`, `fail 0`).
+- **Coverage: %98.11 satır, %93.06 dal, %98.74 fonksiyon** (hedef ≥%70 — aşıldı).
 - 10 test dosyası: derive, validate, db, csv, routes-readings, access-gate, security-headers, config, server, integration.
+
+## Yeniden doğrulama (AF-091 — REQ-001 delta, cycle 2)
+
+Faz 9 `MOUNT_PREFIX` fail-closed düzeltmesi (DL-09-002: `/v/` önek üretimi + `assertProductionPrefix` format kontrolü) sonrası bu faz yeniden doğrulandı. Etki: `tests/access-gate.test.js`'e 5 yeni regresyon testi eklendi (68→73), `accessGate.js` %100 satır/dal kapsamda kalmaya devam ediyor. Kritik senaryo ("önek olmadan hiçbir gerçek yola eşleşmeme" + "geçersiz/kısa/öneksiz `assertProductionPrefix` reddi") testlerle doğrudan kapsanıyor. Diğer test dosyalarında değişiklik gerekmedi — coverage artışı yalnızca yeni testlerin eklenmesinden.
 
 ## Dosya bazlı coverage (öne çıkanlar)
 
