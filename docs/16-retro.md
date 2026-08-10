@@ -24,9 +24,13 @@
 ## Metrikler
 
 - 17 faz (0b dahil) tek AUTOPILOT koşumda tamamlandı.
-- 68 test, coverage %98.05, çalışma zamanı bağımlılığı sıfır.
+- 73 test, coverage %98.11, çalışma zamanı bağımlılığı sıfır (v0.1.1 — REQ-001 sonrası).
 - Faz 10 bilinçli olarak atlandı (LITE, AF-112).
+
+## Yeniden doğrulama + cycle 2 notu (AF-091/AF-096 — REQ-001)
+
+Pipeline tamamlandıktan sonra gelen ilk `↺ Yeni İhtiyaç` (REQ-001: "deploy oldu görünüyor ama erişemiyorum") mekanizmayı uçtan uca doğruladı: `feedback_loops` → Faz 9 delta (DL-09-002) → AF-091 ile 11-16 otomatik geçersiz sayılıp numara sırasıyla yeniden doğrulandı (11: değişiklik yok/test güncellendi; 12: gerçek kod değişikliği — TD-1 kapatıldı, DL-12-002; 13: v0.1.1 PATCH; 14: değişiklik yok; 15: TD-1 çözüldü işaretlendi). Fabrika sürecinde yeni bir eksik YÜZEYE ÇIKMADI — bu, önceki koşumun AF-129/130 bulgularının aksine, delta-işleme hattının (AF-090/091/096) tasarlandığı gibi çalıştığının kanıtı. Ürün tarafında öğrenilen ders DL-15-002'ye kaydedildi (fail-closed varsayımının biçim+uzunluk kontrolünün TAMAMINI kapsaması gerektiği).
 
 ## Kalite kapısı raporu
 
-- "≥1 somut süreç iyileştirmesi" → ✅ (Öneri 1, Öneri 2)
+- "≥1 somut süreç iyileştirmesi" → ✅ (Öneri 1, Öneri 2 — önceki koşumdan; bu cycle yeni bir fabrika eksikliği üretmedi, mevcut mekanizmayı doğruladı)

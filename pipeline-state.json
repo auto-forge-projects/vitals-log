@@ -1,11 +1,11 @@
 {
   "schema_version": 2,
-  "revision": 141,
+  "revision": 143,
   "project": "vitals-log",
   "workspace": "workspace/vitals-log",
   "profile": "LITE",
-  "current_phase": "9",
-  "status": "running",
+  "current_phase": "16",
+  "status": "completed",
   "active_agents": [],
   "phases": {
     "0": {
@@ -233,7 +233,7 @@
       "started_at": "2026-08-10T09:16:00.000Z",
       "note": "Retrospektif tamamlandi — AF-129/AF-130 fabrika loguna kaydedildi, Oneri 1 (agent tanimlarina git-yasagi notu) secildi",
       "gate_passed": true,
-      "completed_at": "2026-08-10T09:16:40.000Z",
+      "completed_at": "2026-08-10T10:41:00.000Z",
       "artifacts": [
         "docs/16-retro.md"
       ],
@@ -430,7 +430,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-10T10:11:52.211Z",
+  "updated_at": "2026-08-10T10:14:00.617Z",
   "default_mode": "AUTOPILOT",
   "providers": {
     "selected": [
@@ -497,12 +497,13 @@
       "id": "REQ-001",
       "text": "Uygulama deploy oldu görünüyor fakat erisemiyorum, deployment ta bir sorun var. Tekrar deploy et.",
       "at": "2026-08-10T09:56:10.951Z",
-      "status": "in_delta",
+      "status": "shipped",
       "phases": [
         "9"
       ],
       "cycle": 2,
-      "notify_email": "sametemek@windowslive.com"
+      "notify_email": "sametemek@windowslive.com",
+      "shipped_in": "v0.1.1"
     }
   ]
 }
