@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
-  "revision": 101,
+  "revision": 106,
   "project": "vitals-log",
   "workspace": "workspace/vitals-log",
   "profile": "LITE",
-  "current_phase": 13,
+  "current_phase": 14,
   "status": "running",
   "active_agents": [],
   "phases": {
@@ -197,6 +197,20 @@
         "DL-12-001"
       ]
     },
+    "13": {
+      "mode": "AUTOPILOT",
+      "status": "done",
+      "started_at": "2026-08-10T09:13:00.000Z",
+      "note": "Release tamamlandi — v0.1.0, rollback plani tanimli, JOIN kapisi (Faz10 LITE atlanir) dogrulandi",
+      "gate_passed": true,
+      "completed_at": "2026-08-10T09:13:40.000Z",
+      "artifacts": [
+        "docs/13-release-notes.md"
+      ],
+      "decisions": [
+        "DL-13-001"
+      ]
+    },
     "1-2": {
       "mode": "AUTOPILOT",
       "status": "done",
@@ -350,10 +364,18 @@
         "model_recommended": "sonnet",
         "gate_passed": true,
         "at": "2026-08-10T09:12:30.000Z"
+      },
+      {
+        "phase": "13",
+        "duration_s": 40,
+        "model": null,
+        "model_recommended": "haiku",
+        "gate_passed": true,
+        "at": "2026-08-10T09:13:40.000Z"
       }
     ]
   },
-  "updated_at": "2026-08-10T09:12:21.259Z",
+  "updated_at": "2026-08-10T09:13:35.067Z",
   "default_mode": "AUTOPILOT",
   "providers": {
     "selected": [
@@ -395,6 +417,11 @@
       "phase": 11,
       "at": "2026-08-10T09:10:38.084Z",
       "note": "68/68 test yesil, coverage %98.05, kritik senaryolar %100 (FR/NFR/SEC izlenebilirligi tam). Faz 12 bu testleri CI workflow icinde kosturacak."
+    },
+    {
+      "phase": 12,
+      "at": "2026-08-10T09:12:49.017Z",
+      "note": "Dockerfile eklendi (node:22-alpine, non-root, sifir bagimlilik, /app/data volume, bagimliksiz healthcheck). docker build basarili. deploy.json zaten enabled:true host_port:5009. Faz 13 Release bunun uzerine kurulacak."
     }
   ],
   "product": {
