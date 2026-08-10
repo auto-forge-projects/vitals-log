@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node src/server.js",
     "test": "node --test",
-    "gen-token": "node -e \"console.log(require('node:crypto').randomBytes(24).toString('base64url'))\""
+    "gen-token": "node -e \"console.log('/v/' + require('node:crypto').randomBytes(24).toString('base64url'))\""
   },
   "engines": {
     "node": ">=22.5.0"

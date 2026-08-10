@@ -18,12 +18,23 @@ export function checkAccess({ pathname, mountPrefix }) {
   return { allowed: true, remainder: rest === '' ? '/' : rest };
 }
 
-// SEC-2 fail-closed: production'da MOUNT_PREFIX yoksa/kisaysa sunucu BASLAMAZ.
+// SEC-2 fail-closed: production'da MOUNT_PREFIX yoksa/kisaysa/'/' ile baslamiyorsa sunucu BASLAMAZ.
+// '/' kontrolu REQ-001'den geldi: checkAccess pathname'i (her zaman '/' ile baslar) MOUNT_PREFIX ile
+// birebir karsilastirir — onek '/' ile baslamazsa uzunluk kontrolunu gecse bile HICBIR yola asla
+// eslesmez ve sunucu "basariyla" acilip /health disinda her yolu sessizce 404'ler (fail-closed yerine
+// fail-silent-ve-erisilemez, ayirt edilmesi cok daha zor bir hata).
 export function assertProductionPrefix({ nodeEnv, mountPrefix }) {
-  if (nodeEnv === 'production' && (!mountPrefix || mountPrefix.length < 22)) {
+  if (nodeEnv !== 'production') return;
+  if (!mountPrefix || mountPrefix.length < 22) {
     throw new Error(
       'MOUNT_PREFIX eksik/kisa (>=22 karakter gerekli). Fail-closed: production baslamiyor. ' +
-      "Uret: node -e \"console.log('/v/' + require('crypto').randomBytes(24).toString('base64url'))\""
+      "Uret: npm run gen-token (veya) node -e \"console.log('/v/' + require('crypto').randomBytes(24).toString('base64url'))\""
+    );
+  }
+  if (!mountPrefix.startsWith('/')) {
+    throw new Error(
+      "MOUNT_PREFIX '/' ile baslamiyor (yol oneki gecerli degil — hicbir istege eslesmez). Fail-closed: production baslamiyor. " +
+      "Uret: npm run gen-token (veya) node -e \"console.log('/v/' + require('crypto').randomBytes(24).toString('base64url'))\""
     );
   }
 }
