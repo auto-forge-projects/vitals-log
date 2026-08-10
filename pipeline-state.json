@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
-  "revision": 27,
+  "revision": 34,
   "project": "vitals-log",
   "workspace": "workspace/vitals-log",
   "profile": "LITE",
-  "current_phase": 6,
+  "current_phase": 9,
   "status": "running",
   "active_agents": [],
   "phases": {
@@ -71,6 +71,49 @@
         "DL-05-004"
       ]
     },
+    "6": {
+      "mode": "AUTOPILOT",
+      "status": "done",
+      "started_at": "2026-08-10T08:39:00.000Z",
+      "note": "UI/UX (developer subagent) — tek sayfa form-ustte/liste-altta, duzenleme ayni form, mobilde dikey karta donusum",
+      "gate_passed": true,
+      "completed_at": "2026-08-10T08:44:00.000Z",
+      "artifacts": [
+        "docs/06-uiux/06-uiux.md"
+      ],
+      "decisions": [
+        "DL-06-001"
+      ]
+    },
+    "7": {
+      "mode": "AUTOPILOT",
+      "status": "done",
+      "started_at": "2026-08-10T08:39:00.000Z",
+      "note": "Guvenlik tamamlandi (security-reviewer subagent) — OWASP 10/10, STRIDE, tahmin edilemez capability-URL (MOUNT_PREFIX, CSPRNG>=128bit, fail-closed, timingSafeEqual, 404 on mismatch), SEC-1..12 Faz 9a devredildi",
+      "gate_passed": true,
+      "completed_at": "2026-08-10T08:47:00.000Z",
+      "artifacts": [
+        "docs/07-security.md"
+      ],
+      "decisions": [
+        "DL-07-001",
+        "DL-07-002"
+      ]
+    },
+    "8": {
+      "mode": "AUTOPILOT",
+      "status": "done",
+      "started_at": "2026-08-10T08:39:00.000Z",
+      "note": "Planlama tamamlandi (business-analyst subagent) — 8 task, TDD sirali, cevrimsiz baglilik grafi",
+      "gate_passed": true,
+      "completed_at": "2026-08-10T08:45:00.000Z",
+      "artifacts": [
+        "docs/08-plan.md"
+      ],
+      "decisions": [
+        "DL-08-001"
+      ]
+    },
     "1-2": {
       "mode": "AUTOPILOT",
       "status": "done",
@@ -84,6 +127,17 @@
       "decisions": [
         "DL-01-001"
       ]
+    },
+    "0b": {
+      "status": "done",
+      "mode": "AUTOPILOT",
+      "gate_passed": true,
+      "completed_at": "2026-08-10T08:26:00.000Z",
+      "artifacts": [
+        "docs/00-refined-brief.md",
+        "docs/00-refine-questions.json"
+      ],
+      "note": "0b rafinasyon — Faz 0 (kombine key \"0\") icine katlandi, graf tutarliligi icin ayrica isaretlendi"
     }
   },
   "feedback_loops": [],
@@ -113,6 +167,16 @@
       "at": "2026-08-10T08:21:06.407Z",
       "event": "profile_changed",
       "detail": "LITE"
+    },
+    {
+      "event": "phase_started",
+      "phase": 7,
+      "detail": "paralel dispatch (6,7,8)"
+    },
+    {
+      "event": "phase_started",
+      "phase": 8,
+      "detail": "paralel dispatch (6,7,8)"
     }
   ],
   "budget": {
@@ -150,10 +214,34 @@
         "model_recommended": "opus",
         "gate_passed": true,
         "at": "2026-08-10T08:38:00.000Z"
+      },
+      {
+        "phase": "6",
+        "duration_s": 300,
+        "model": null,
+        "model_recommended": "sonnet",
+        "gate_passed": true,
+        "at": "2026-08-10T08:44:00.000Z"
+      },
+      {
+        "phase": "7",
+        "duration_s": 480,
+        "model": null,
+        "model_recommended": "opus",
+        "gate_passed": true,
+        "at": "2026-08-10T08:47:00.000Z"
+      },
+      {
+        "phase": "8",
+        "duration_s": 360,
+        "model": null,
+        "model_recommended": "sonnet",
+        "gate_passed": true,
+        "at": "2026-08-10T08:45:00.000Z"
       }
     ]
   },
-  "updated_at": "2026-08-10T08:37:51.969Z",
+  "updated_at": "2026-08-10T08:46:51.223Z",
   "default_mode": "AUTOPILOT",
   "providers": {
     "selected": [
@@ -181,5 +269,17 @@
       "at": "2026-08-10T08:25:04.372Z",
       "note": "vitals-log: mobil oncelikli, girissiz tek kullanici, sunucu-DB vital bulgu takip araci. Sag/sol kol tansiyon+ortalama(aritmetik+MAP), ates/nabiz/oksijen, zaman dilimi onerisi, CRUD+CSV export."
     }
-  ]
+  ],
+  "product": {
+    "name": "vitals-log",
+    "type": "web",
+    "version": "0.1.0",
+    "auto_run": false,
+    "commands": {
+      "build": "docker build -t vitals-log .",
+      "test": "npm test",
+      "run": "docker run -p 3000:3000 vitals-log"
+    },
+    "links": []
+  }
 }
