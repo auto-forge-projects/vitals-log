@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
-  "revision": 95,
+  "revision": 100,
   "project": "vitals-log",
   "workspace": "workspace/vitals-log",
   "profile": "LITE",
-  "current_phase": 12,
+  "current_phase": 13,
   "status": "running",
   "active_agents": [],
   "phases": {
@@ -180,6 +180,23 @@
         "DL-11-001"
       ]
     },
+    "12": {
+      "mode": "AUTOPILOT",
+      "status": "done",
+      "started_at": "2026-08-10T09:11:30.000Z",
+      "note": "CI/CD tamamlandi (inline devops-engineer rolu) — Dockerfile eklendi, docker build basarili, scaffold CI/deploy workflow dokunulmadan kullanildi",
+      "gate_passed": true,
+      "completed_at": "2026-08-10T09:12:30.000Z",
+      "artifacts": [
+        "Dockerfile",
+        "docs/12-cicd.md",
+        ".github/workflows/ci.yml",
+        ".github/workflows/deploy-image.yml"
+      ],
+      "decisions": [
+        "DL-12-001"
+      ]
+    },
     "1-2": {
       "mode": "AUTOPILOT",
       "status": "done",
@@ -325,10 +342,18 @@
         "model_recommended": "sonnet",
         "gate_passed": true,
         "at": "2026-08-10T09:11:00.000Z"
+      },
+      {
+        "phase": "12",
+        "duration_s": 60,
+        "model": null,
+        "model_recommended": "sonnet",
+        "gate_passed": true,
+        "at": "2026-08-10T09:12:30.000Z"
       }
     ]
   },
-  "updated_at": "2026-08-10T09:10:35.431Z",
+  "updated_at": "2026-08-10T09:12:21.084Z",
   "default_mode": "AUTOPILOT",
   "providers": {
     "selected": [
@@ -365,6 +390,11 @@
       "phase": 9,
       "at": "2026-08-10T09:08:43.461Z",
       "note": "Kod tamam: derive.js/validate.js/db.js(node:sqlite)/csv.js/routes/readings.js/server.js(node:http)/public/ (form+liste+CRUD+CSV). 68 test yesil, coverage %98.05. Capability-URL erisim modeli (MOUNT_PREFIX) calisir durumda, SEC-1..10+12 uygulandi. Faz 11 bu testleri Faz 11 kapsamina alacak."
+    },
+    {
+      "phase": 11,
+      "at": "2026-08-10T09:10:38.084Z",
+      "note": "68/68 test yesil, coverage %98.05, kritik senaryolar %100 (FR/NFR/SEC izlenebilirligi tam). Faz 12 bu testleri CI workflow icinde kosturacak."
     }
   ],
   "product": {
