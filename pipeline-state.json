@@ -1,11 +1,11 @@
 {
   "schema_version": 2,
-  "revision": 122,
+  "revision": 124,
   "project": "vitals-log",
   "workspace": "workspace/vitals-log",
   "profile": "LITE",
-  "current_phase": 16,
-  "status": "completed",
+  "current_phase": "9",
+  "status": "running",
   "active_agents": [],
   "phases": {
     "0": {
@@ -116,41 +116,29 @@
     },
     "9": {
       "mode": "AUTOPILOT",
-      "status": "done",
-      "started_at": "2026-08-10T08:50:00.000Z",
+      "status": "running",
+      "started_at": "2026-08-10T09:56:48.321Z",
       "note": "Development tamamlandi (inline developer rolu, TDD) — 68 test yesil, coverage %98.05, verify-gate --level all gecti (TDD commit-kaniti dahil)",
       "tasks": [
         {
-          "title": "TASK-001 derive.js (mean/map/periodFor/enrich)",
-          "status": "done"
+          "title": "gen-token scriptine /v/ öneki ekle",
+          "status": "in_progress"
         },
         {
-          "title": "TASK-002 validate.js",
-          "status": "done"
+          "title": "assertProductionPrefix onek(/) dogrulamasi ekle (fail-closed guclendirme)",
+          "status": "pending"
         },
         {
-          "title": "TASK-003 db.js ReadingStore",
-          "status": "done"
+          "title": "testler guncelle + npm test yesil",
+          "status": "pending"
         },
         {
-          "title": "TASK-004 csv.js",
-          "status": "done"
+          "title": "DL-09-002 yaz",
+          "status": "pending"
         },
         {
-          "title": "TASK-005 routes/readings.js",
-          "status": "done"
-        },
-        {
-          "title": "TASK-006 server.js middleware+static+health",
-          "status": "done"
-        },
-        {
-          "title": "TASK-007 public/ istemci",
-          "status": "done"
-        },
-        {
-          "title": "TASK-008 entegrasyon+coverage+kapi",
-          "status": "done"
+          "title": "commit + push",
+          "status": "pending"
         }
       ],
       "gate_passed": true,
@@ -279,52 +267,20 @@
       "note": "0b rafinasyon — Faz 0 (kombine key \"0\") icine katlandi, graf tutarliligi icin ayrica isaretlendi"
     }
   },
-  "feedback_loops": [],
+  "feedback_loops": [
+    {
+      "from": "REQ-001",
+      "to": "9",
+      "reason": "Deploy zinciri + MOUNT_PREFIX üretim scripti erişilemez üretim ortamına yol açıyor (Faz 9 kod hatası + Faz 12 deploy zinciri eksiği)",
+      "at": "2026-08-10T09:56:10.951Z"
+    }
+  ],
   "pending_human_review": [],
   "history": [
     {
-      "event": "refine",
-      "phase": 0,
-      "detail": "0b rafinasyon: vitals-log brief + 7 netleştirme sorusu üretildi"
-    },
-    {
-      "at": "2026-08-10T08:13:48.354Z",
-      "event": "mode_changed",
-      "detail": "AUTOPILOT (aktif+sonrası; fazlar: 0)"
-    },
-    {
-      "at": "2026-08-10T08:13:48.606Z",
-      "event": "profile_changed",
-      "detail": "LITE"
-    },
-    {
-      "at": "2026-08-10T08:21:06.157Z",
-      "event": "mode_changed",
-      "detail": "AUTOPILOT (aktif+sonrası; fazlar: 0)"
-    },
-    {
-      "at": "2026-08-10T08:21:06.407Z",
-      "event": "profile_changed",
-      "detail": "LITE"
-    },
-    {
-      "event": "phase_started",
-      "phase": 7,
-      "detail": "paralel dispatch (6,7,8)"
-    },
-    {
-      "event": "phase_started",
-      "phase": 8,
-      "detail": "paralel dispatch (6,7,8)"
-    },
-    {
-      "event": "phase_skipped",
-      "phase": 10,
-      "detail": "Code Review — LITE profilinde ATLANIR (AF-112). Kod bagimsiz denetimden gecmez, kullanici hizi bu riske tercih etti."
-    },
-    {
-      "event": "pipeline_completed",
-      "detail": "17 faz (0b dahil) AUTOPILOT ile tamamlandi. Deploy TETIKLENMEDI (TD-1: MOUNT_PREFIX secret eksik, production fail-closed baslamaz) - kullanici bu eksigi cozup pipeline-deploy ile manuel tetiklemeli."
+      "at": "2026-08-10T09:56:10.951Z",
+      "event": "cycle_opened",
+      "detail": "REQ-001: deploy görünüyor ama erişilemiyor — Faz 9 yeniden açıldı (gen-token /v/ önek eksikliği + deploy zinciri MOUNT_PREFIX iletimi)"
     }
   ],
   "budget": {
@@ -445,7 +401,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-10T09:17:35.368Z",
+  "updated_at": "2026-08-10T09:56:53.336Z",
   "default_mode": "AUTOPILOT",
   "providers": {
     "selected": [
@@ -505,5 +461,19 @@
       "run": "docker run -p 3000:3000 vitals-log"
     },
     "links": []
-  }
+  },
+  "cycle": 2,
+  "requests": [
+    {
+      "id": "REQ-001",
+      "text": "Uygulama deploy oldu görünüyor fakat erisemiyorum, deployment ta bir sorun var. Tekrar deploy et.",
+      "at": "2026-08-10T09:56:10.951Z",
+      "status": "in_delta",
+      "phases": [
+        "9"
+      ],
+      "cycle": 2,
+      "notify_email": "sametemek@windowslive.com"
+    }
+  ]
 }
