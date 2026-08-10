@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "revision": 60,
+  "revision": 62,
   "project": "vitals-log",
   "workspace": "workspace/vitals-log",
   "profile": "LITE",
@@ -13,7 +13,7 @@
       "phase": 9,
       "task": "Development TDD",
       "started_at": "2026-08-10T08:50:00.000Z",
-      "last_update": "2026-08-10T08:57:35.371Z",
+      "last_update": "2026-08-10T08:58:13.398Z",
       "via": "inline"
     }
   ],
@@ -144,11 +144,11 @@
         },
         {
           "title": "TASK-004 csv.js",
-          "status": "in_progress"
+          "status": "done"
         },
         {
           "title": "TASK-005 routes/readings.js",
-          "status": "pending"
+          "status": "in_progress"
         },
         {
           "title": "TASK-006 server.js middleware+static+health",
@@ -291,7 +291,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-10T08:58:13.182Z",
+  "updated_at": "2026-08-10T08:58:15.957Z",
   "default_mode": "AUTOPILOT",
   "providers": {
     "selected": [
