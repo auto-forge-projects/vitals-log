@@ -7,7 +7,49 @@
 <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-<main id="app">Yükleniyor…</main>
+<main>
+  <div id="banner" class="banner" hidden></div>
+
+  <form id="reading-form" class="card">
+    <h1 id="form-title">Yeni Kayıt</h1>
+
+    <label>Saat (boş=şimdi)
+      <input type="time" id="f-time" step="60">
+    </label>
+    <label>Zaman dilimi
+      <select id="f-period">
+        <option>Sabah</option><option>Öğle</option><option>İkindi</option><option>Akşam</option><option>Yatsı</option>
+      </select>
+    </label>
+
+    <fieldset>
+      <legend>Sağ kol</legend>
+      <label>Büyük <input type="number" id="f-rs" inputmode="numeric"></label>
+      <label>Küçük <input type="number" id="f-rd" inputmode="numeric"></label>
+      <p class="derived" id="right-derived">Ort: — MAP: —</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Sol kol</legend>
+      <label>Büyük <input type="number" id="f-ls" inputmode="numeric"></label>
+      <label>Küçük <input type="number" id="f-ld" inputmode="numeric"></label>
+      <p class="derived" id="left-derived">Ort: — MAP: —</p>
+    </fieldset>
+
+    <label>Ateş <input type="number" step="0.1" id="f-fever" inputmode="decimal"></label>
+    <label>Nabız <input type="number" id="f-pulse" inputmode="numeric"></label>
+    <label>Oksijen <input type="number" id="f-oxygen" inputmode="numeric"></label>
+
+    <div class="actions">
+      <button type="submit" id="f-submit">Kaydet</button>
+      <button type="button" id="f-cancel" hidden>Vazgeç</button>
+    </div>
+  </form>
+
+  <button type="button" id="export-btn" class="secondary">CSV dışa aktar</button>
+
+  <section id="list" class="list" aria-label="Kayıt listesi"></section>
+</main>
 <script type="module" src="./app.js"></script>
 </body>
 </html>
