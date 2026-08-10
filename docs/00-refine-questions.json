@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-10T00:00:00.000Z",
+  "round": 1,
+  "status": "applied",
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "Bu tabloya kim erişecek — kimlik doğrulama gerekiyor mu?",
+      "why": "Kişisel sağlık verisi taşıdığı için erişim modeli mimariyi ve güvenlik kapsamını doğrudan belirliyor.",
+      "criticality": "critical",
+      "suggested_options": [
+        "Tek kullanıcı, girişsiz (yerel/kişisel kullanım)",
+        "Tek kullanıcı ama şifre korumalı",
+        "Birden fazla kullanıcı (her biri kendi verisini görür)",
+        "Paylaşılan tek tablo (aile/bakıcı erişimi)"
+      ],
+      "answer": "Tek kullanıcı, girişsiz (yerel/kişisel kullanım)",
+      "answered_at": "2026-08-10T08:01:47.800Z"
+    },
+    {
+      "id": "Q2",
+      "question": "Tablo hangi platformda çalışacak?",
+      "why": "Web/masaüstü/mobil ayrımı teknoloji seçimini ve UI tasarımını belirliyor.",
+      "criticality": "critical",
+      "suggested_options": [
+        "Web uygulaması (masaüstü + mobil tarayıcı)",
+        "Yalnızca masaüstü tarayıcı",
+        "Mobil öncelikli (telefon ekranına göre tasarım)",
+        "Masaüstü uygulaması (kurulum gerektiren)"
+      ],
+      "answer": "Mobil öncelikli (telefon ekranına göre tasarım)",
+      "answered_at": "2026-08-10T08:02:01.359Z"
+    },
+    {
+      "id": "Q3",
+      "question": "Sabah/Öğle/İkindi/Akşam/Yatsı gibi zaman dilimi etiketi nasıl belirlenecek?",
+      "why": "Girilen/otomatik saat değerinin zaman dilimine nasıl eşleneceği veri modelini ve giriş formunu belirliyor.",
+      "criticality": "critical",
+      "suggested_options": [
+        "Sistem saate göre otomatik etiketlesin (ör. 05:00-11:00 Sabah)",
+        "Kullanıcı dropdown'dan elle seçsin",
+        "Sistem öneri versin, kullanıcı isterse değiştirsin"
+      ],
+      "answer": "Sistem öneri versin, kullanıcı isterse değiştirsin",
+      "answered_at": "2026-08-10T08:02:12.901Z"
+    },
+    {
+      "id": "Q4",
+      "question": "Veri nerede saklanacak?",
+      "why": "Tarayıcı-yerel depolama mı yoksa sunucu tarafı veritabanı mı olacağı, verinin cihazlar arası erişilebilirliğini ve kalıcılığını belirliyor.",
+      "criticality": "critical",
+      "suggested_options": [
+        "Tarayıcı yerel depolama (yalnız bu cihazda, sunucu yok)",
+        "Sunucu tarafı veritabanı (farklı cihazlardan erişilebilir)"
+      ],
+      "answer": "Sunucu tarafı veritabanı (farklı cihazlardan erişilebilir)",
+      "answered_at": "2026-08-10T08:02:28.739Z"
+    },
+    {
+      "id": "Q5",
+      "question": "Tansiyon ortalaması hangi yöntemle hesaplanmalı?",
+      "why": "Basit aritmetik ortalama ile tıbbi Ortalama Arter Basıncı (MAP) formülü farklı sonuç verir; hangisinin istendiği belirsiz.",
+      "criticality": "optional",
+      "suggested_options": [
+        "Basit aritmetik ortalama ((büyük+küçük)/2)",
+        "Tıbbi MAP formülü (Diyastolik + (Sistolik-Diyastolik)/3)",
+        "İkisini de göster"
+      ],
+      "answer": "İkisini de göster",
+      "answered_at": "2026-08-10T08:02:48.057Z"
+    },
+    {
+      "id": "Q6",
+      "question": "Girilmiş kayıtları düzenleme/silme ve dışa aktarma gerekiyor mu?",
+      "why": "Bu özellik kapsamı ve Faz 3 gereksinimlerini etkiliyor (yalnız ekleme mi, tam CRUD + export mı).",
+      "criticality": "optional",
+      "suggested_options": [
+        "Evet, düzenle + sil + CSV dışa aktarma olsun",
+        "Yalnız görüntüleme + CSV dışa aktarma yeterli",
+        "Şimdilik gerek yok, yalnız giriş + listeleme"
+      ],
+      "answer": "Evet, düzenle + sil + CSV dışa aktarma olsun",
+      "answered_at": "2026-08-10T08:03:00.429Z"
+    },
+    {
+      "id": "Q7",
+      "question": "Aynı zaman diliminde (ör. sabah) günde birden fazla kayıt girilebilsin mi?",
+      "why": "Günlük minimum 4 kayıt kuralının zaman dilimi başına mı yoksa toplam mı uygulanacağını belirliyor.",
+      "criticality": "optional",
+      "suggested_options": [
+        "Sınırsız, aynı dilimde birden fazla kayda izin ver",
+        "Her zaman diliminde günde yalnız bir kayıt",
+        "Zaman dilimi yalnız etiket, giriş sayısı serbest"
+      ],
+      "answer": "Sınırsız, aynı dilimde birden fazla kayda izin ver",
+      "answered_at": "2026-08-10T08:03:23.641Z"
+    }
+  ],
+  "answered_at": "2026-08-10T08:03:23.641Z",
+  "applied_at": "2026-08-10T08:05:00.000Z"
+}

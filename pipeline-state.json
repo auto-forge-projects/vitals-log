@@ -1,20 +1,77 @@
 {
   "schema_version": 2,
-  "revision": 0,
+  "revision": 13,
   "project": "vitals-log",
   "workspace": "workspace/vitals-log",
-  "repo_mode": "per-repo",
   "profile": "LITE",
-  "current_phase": null,
+  "current_phase": 0,
   "status": "pending",
   "active_agents": [],
-  "phases": {},
+  "phases": {
+    "0": {
+      "mode": "AUTOPILOT",
+      "status": "awaiting_approval",
+      "note": "0b rafine brief + 7 netleştirme sorusu (4 kritik) onay bekliyor",
+      "artifacts": [
+        "docs/00-refined-brief.md",
+        "docs/00-refine-questions.json"
+      ],
+      "decisions": []
+    }
+  },
   "feedback_loops": [],
   "pending_human_review": [],
-  "history": [],
+  "history": [
+    {
+      "event": "refine",
+      "phase": 0,
+      "detail": "0b rafinasyon: vitals-log brief + 7 netleştirme sorusu üretildi"
+    },
+    {
+      "at": "2026-08-10T08:13:48.354Z",
+      "event": "mode_changed",
+      "detail": "AUTOPILOT (aktif+sonrası; fazlar: 0)"
+    },
+    {
+      "at": "2026-08-10T08:13:48.606Z",
+      "event": "profile_changed",
+      "detail": "LITE"
+    },
+    {
+      "at": "2026-08-10T08:21:06.157Z",
+      "event": "mode_changed",
+      "detail": "AUTOPILOT (aktif+sonrası; fazlar: 0)"
+    },
+    {
+      "at": "2026-08-10T08:21:06.407Z",
+      "event": "profile_changed",
+      "detail": "LITE"
+    }
+  ],
   "budget": {
     "model_calls": {},
     "notes": ""
   },
-  "updated_at": null
+  "updated_at": "2026-08-10T08:24:25.518Z",
+  "default_mode": "AUTOPILOT",
+  "providers": {
+    "selected": [
+      "claude"
+    ],
+    "plan": {
+      "pool": [
+        "claude"
+      ],
+      "orchestrator": "claude",
+      "build": "claude",
+      "audit": "claude",
+      "cross_provider_audit": false,
+      "audit_phases": [
+        "7",
+        "10"
+      ],
+      "fallback_reason": null
+    },
+    "at": "2026-08-10T08:21:06.566Z"
+  }
 }
