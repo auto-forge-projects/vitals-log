@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "revision": 34,
+  "revision": 38,
   "project": "vitals-log",
   "workspace": "workspace/vitals-log",
   "profile": "LITE",
@@ -241,7 +241,7 @@
       }
     ]
   },
-  "updated_at": "2026-08-10T08:46:51.223Z",
+  "updated_at": "2026-08-10T08:46:51.603Z",
   "default_mode": "AUTOPILOT",
   "providers": {
     "selected": [
@@ -268,6 +268,11 @@
       "phase": 0,
       "at": "2026-08-10T08:25:04.372Z",
       "note": "vitals-log: mobil oncelikli, girissiz tek kullanici, sunucu-DB vital bulgu takip araci. Sag/sol kol tansiyon+ortalama(aritmetik+MAP), ates/nabiz/oksijen, zaman dilimi onerisi, CRUD+CSV export."
+    },
+    {
+      "phase": "6-7-8",
+      "at": "2026-08-10T08:46:51.603Z",
+      "note": "UI: tek sayfa form+liste. Guvenlik: capability-URL (MOUNT_PREFIX, 128bit CSPRNG, fail-closed, timingSafeEqual, 404-on-miss), oksijen araligi 50-100 (0-49 veri hatasi sayilir), CSP script-src self, SEC-1..12. Plan: 8 TDD task (derive->validate/db->csv->routes->server->public->entegrasyon)."
     }
   ],
   "product": {
