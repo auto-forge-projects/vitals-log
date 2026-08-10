@@ -23,6 +23,10 @@
 
 **LITE kapsam kararı:** Tam teşekküllü metrik/alert altyapısı (Prometheus/Grafana vb.) bu ölçekte orantısız — health check + yapılandırılmış log yeterli görülüyor (bkz. DL-14-001).
 
+## Yeniden doğrulama (AF-091 — REQ-001 delta, cycle 2)
+
+Faz 9/12 değişiklikleri (MOUNT_PREFIX fail-closed + deploy zinciri wiring) yeniden doğrulandı — **değişiklik gerekmedi.** `/health` hâlâ mount-prefix'ten muaf (aynı davranış), yeni fail-loud kontrol (`remote-deploy.sh`) container BAŞLAMADAN önce devreye girdiği için bir GH Actions deploy adımı hatası olarak görünür — bu, koşan uygulamanın log/health sinyalini değiştirmez, yalnız deploy-öncesi bir hata sınıfını daha erken/görünür kılar (mevcut "Container `unhealthy`" satırı zaten bu sınıfı örtüyordu).
+
 ## Kalite kapısı raporu
 
 - "Kritik akışlara alert" → ✅ (health check + log görünürlüğü + container healthcheck yukarıda tanımlı)
